@@ -60,7 +60,7 @@
   /* ---------- buttons / CTA ---------- */
   .cta {
     display: inline-flex; align-items: center; justify-content: center; gap: 10px;
-    font-family: var(--font); font-size: 1rem; font-weight: 700;
+    font-family: var(--font); font-size: 1rem; font-weight:700;
     padding: 15px 32px; border-radius: 4px; border: 1px solid transparent;
     background: var(--gold-grad); color: var(--on-gold);
     cursor: pointer; transition: transform 0.25s ease, box-shadow 0.25s ease;
@@ -156,6 +156,23 @@
   .service-card h3 { font-size: 1.35rem; color: var(--ink-strong); margin-top: 14px; font-weight: 700; line-height: 1.3; }
   .service-card p { color: var(--muted); font-size: 0.95rem; line-height: 1.75; margin-top: 12px; }
 
+  /* products (业务范围) - alternating rows */
+  .product-list { display: flex; flex-direction: column; gap: 64px; margin-top: 56px; }
+  .product-row { display: grid; grid-template-columns: 1fr 1fr; gap: 52px; align-items: center; }
+  .product-media { order: 1; border-radius: 8px; overflow: hidden; border: 1px solid var(--line); box-shadow: 0 30px 60px rgba(0,0,0,0.42); }
+  .product-media img { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; }
+  .product-info { order: 2; }
+  .product-row.reverse .product-media { order: 2; }
+  .product-row.reverse .product-info { order: 1; }
+  .product-info .tag { display: inline-block; font-size: 0.74rem; color: var(--gold); font-weight: 700; letter-spacing: 0.08em; margin-bottom: 10px; }
+  .product-info h3 { font-size: 1.6rem; color: var(--ink-strong); font-weight: 700; line-height: 1.3; }
+  .product-info p { color: var(--muted); font-size: 1rem; line-height: 1.85; margin-top: 14px; }
+  .product-info .point { color: var(--gold-strong); font-size: 0.85rem; margin-top: 16px; }
+  .support-band { margin-top: 64px; border: 1px solid var(--line); border-radius: 8px; padding: 32px 34px; background: linear-gradient(150deg, var(--surface-2), var(--surface)); display: flex; gap: 24px; align-items: flex-start; }
+  .support-band .ico { flex-shrink: 0; width: 54px; height: 54px; border-radius: 50%; display: grid; place-items: center; background: var(--gold-grad); color: var(--on-gold); font-weight: 800; font-size: 1.1rem; }
+  .support-band h3 { font-size: 1.3rem; color: var(--ink-strong); font-weight: 700; }
+  .support-band p { color: var(--muted); font-size: 0.98rem; line-height: 1.75; margin-top: 8px; }
+
   /* navigation */
   .nav-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 56px; }
   .nav-card { border: 1px solid var(--line); border-radius: 6px; padding: 30px 28px; background: var(--surface); }
@@ -170,21 +187,6 @@
   .value-card .ico { font-size: 2rem; color: var(--gold); }
   .value-card h3 { font-size: 1.2rem; color: var(--ink-strong); margin-top: 14px; font-weight: 700; }
   .value-card p { color: var(--muted); font-size: 0.92rem; line-height: 1.7; margin-top: 10px; }
-
-  /* products (业务范围) */
-  .product-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 22px; margin-top: 56px; }
-  .product-card { border: 1px solid var(--line); border-radius: 8px; overflow: hidden; background: var(--surface); transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease; }
-  .product-card:hover { transform: translateY(-5px); border-color: var(--line-strong); box-shadow: 0 26px 54px rgba(0,0,0,0.42); }
-  .product-img { aspect-ratio: 16 / 9; overflow: hidden; border-bottom: 1px solid var(--line); background: var(--bg-2); }
-  .product-img img { width: 100%; height: 100%; object-fit: cover; }
-  .product-body { padding: 26px 28px 30px; }
-  .product-body .tag { display: inline-block; font-size: 0.74rem; color: var(--gold); font-weight: 700; letter-spacing: 0.08em; margin-bottom: 8px; }
-  .product-body h3 { font-size: 1.3rem; color: var(--ink-strong); font-weight: 700; }
-  .product-body p { color: var(--muted); font-size: 0.95rem; line-height: 1.75; margin-top: 10px; }
-  .support-band { margin-top: 22px; border: 1px solid var(--line); border-radius: 8px; padding: 30px 32px; background: linear-gradient(150deg, var(--surface-2), var(--surface)); display: flex; gap: 22px; align-items: flex-start; }
-  .support-band .ico { flex-shrink: 0; width: 52px; height: 52px; border-radius: 50%; display: grid; place-items: center; background: var(--gold-grad); color: var(--on-gold); font-weight: 800; font-size: 1.1rem; }
-  .support-band h3 { font-size: 1.25rem; color: var(--ink-strong); font-weight: 700; }
-  .support-band p { color: var(--muted); font-size: 0.98rem; line-height: 1.75; margin-top: 8px; }
 
   /* vision / cooperation */
   .vision-big, .coop-big { font-size: 1.35rem; color: var(--ink-strong); font-weight: 700; line-height: 1.65; margin-top: 22px; }
@@ -206,6 +208,7 @@
     .services-grid, .nav-grid { grid-template-columns: 1fr 1fr; }
     .values-grid { grid-template-columns: 1fr 1fr; }
     .pos-grid { grid-template-columns: 1fr 1fr; }
+    .product-row { gap: 32px; }
   }
   @media (max-width: 720px) {
     .nav-links, .nav-cta { display: none; }
@@ -215,7 +218,11 @@
     .hero { padding: 104px 0 72px; }
     .hero-actions { flex-direction: column; align-items: stretch; }
     .cta, .cta-ghost { justify-content: center; }
-    .pos-grid, .services-grid, .nav-grid, .values-grid, .product-grid { grid-template-columns: 1fr; }
+    .pos-grid, .services-grid, .nav-grid, .values-grid { grid-template-columns: 1fr; }
+    .product-list { gap: 48px; }
+    .product-row, .product-row.reverse { grid-template-columns: 1fr; gap: 22px; }
+    .product-row .product-media, .product-row.reverse .product-media { order: 1; }
+    .product-row .product-info, .product-row.reverse .product-info { order: 2; }
     .support-band { flex-direction: column; gap: 16px; }
     .footer-top { flex-direction: column; }
   }
@@ -231,12 +238,12 @@
     <nav class="nav-links" aria-label="主导航">
       <a class="link" href="#about">关于我们</a>
       <a class="link" href="#services">核心业务</a>
-      <a class="link" href="#navigation">导航体系</a>
       <a class="link" href="#business">业务范围</a>
+      <a class="link" href="#navigation">导航体系</a>
       <a class="link" href="#cooperation">合作共赢</a>
     </nav>
     <div class="nav-right">
-      <a class="nav-cta" href="https://www.qq.com/" target="_blank" rel="noopener" onclick="return k2();">立即咨询</a>
+      <a class="nav-cta"  target="_blank" rel="noopener" onclick="return k2();">立即咨询</a>
       <button class="menu-toggle" id="menu-toggle" aria-label="打开菜单" aria-expanded="false">
         <span></span><span></span>
       </button>
@@ -247,10 +254,10 @@
 <div class="mobile-menu" id="mobile-menu">
   <a href="#about">关于我们</a>
   <a href="#services">核心业务</a>
-  <a href="#navigation">导航体系</a>
   <a href="#business">业务范围</a>
+  <a href="#navigation">导航体系</a>
   <a href="#cooperation">合作共赢</a>
-  <a class="mm-cta" href="https://www.qq.com/" target="_blank" rel="noopener" onclick="return k2();">立即咨询</a>
+  <a class="mm-cta"  target="_blank" rel="noopener" onclick="return k2();">立即咨询</a>
 </div>
 
 <main id="top">
@@ -264,7 +271,7 @@
         <p class="hero-slogan" data-reveal style="--d:.1s">以资源连接价值，以专业驱动增长。</p>
         <p class="hero-desc" data-reveal style="--d:.15s">日进斗金是一家以全球资源整合、数字化商务服务与多元化渠道协作为核心方向的综合型商务服务平台。平台围绕项目导航、频道群组运营、全球资源对接、品牌推广、商务合作及数字化工具应用等业务领域，构建分类清晰、协同高效、持续拓展的资源服务体系。</p>
         <div class="hero-actions" data-reveal style="--d:.2s">
-          <a class="cta" href="https://www.qq.com/" target="_blank" rel="noopener" onclick="return k2();">立即咨询 <span class="arr">→</span></a>
+          <a class="cta"  target="_blank" rel="noopener" onclick="return k2();">立即咨询 <span class="arr">→</span></a>
           <a class="cta-ghost" href="#services">了解核心业务</a>
         </div>
         <div class="hero-tags" data-reveal style="--d:.25s">
@@ -312,6 +319,75 @@
     </div>
   </section>
 
+
+  <!-- 业务范围 -->
+  <section class="alt" id="business">
+    <div class="wrap">
+      <div class="sec-head" data-reveal>
+        <span class="sec-label">业务范围</span>
+        <h2 class="sec-title">全链路数字营销与服务能力</h2>
+      </div>
+      <div class="product-list">
+        <div class="product-row" data-reveal>
+          <div class="product-media"><img src="img/h1.png" alt="Facebook 营销" loading="lazy"></div>
+          <div class="product-info">
+            <span class="tag">Facebook 营销</span>
+            <h3>Facebook 采集与营销</h3>
+            <p>采集同行粉丝、小组等链接，Facebook 批量操作 1000 个账号自动化加小组、发帖、评论、群发。</p>
+          </div>
+        </div>
+        <div class="product-row reverse" data-reveal>
+          <div class="product-media"><img src="img/h7.png" alt="WhatsApp 营销" loading="lazy"></div>
+          <div class="product-info">
+            <span class="tag">WhatsApp 营销</span>
+            <h3>WhatsApp 批量营销</h3>
+            <p>操作 2 个官方接口群发，单个接口群发 1000-10000 条信息，操作 100 个 WhatsApp 多开自动接码注册、自动养号、批量群发。另有国际短信、Viber、邮件等官方接口群发。</p>
+          </div>
+        </div>
+        <div class="product-row" data-reveal>
+          <div class="product-media"><img src="img/h3.png" alt="号码采集" loading="lazy"></div>
+          <div class="product-info">
+            <span class="tag">号码采集</span>
+            <h3>全球电话号码采集</h3>
+            <p>指定国家、平台和行业关键词采集全球电话号码，也可采集 WhatsApp、TG 小组、领英号码、谷歌地图商家号码、独立站商家号码等。</p>
+          </div>
+        </div>
+        <div class="product-row reverse" data-reveal>
+          <div class="product-media"><img src="img/h2.png" alt="数据采集" loading="lazy"></div>
+          <div class="product-info">
+            <span class="tag">数据采集</span>
+            <h3>视频与社媒数据采集</h3>
+            <p>采集 YouTube、TikTok、Ins 网红电话，以及 TikTok、Ins 账号粉丝等数据。</p>
+          </div>
+        </div>
+        <div class="product-row" data-reveal>
+          <div class="product-media"><img src="img/h6.png" alt="筛号" loading="lazy"></div>
+          <div class="product-info">
+            <span class="tag">筛号</span>
+            <h3>数据过滤与筛号</h3>
+            <p>过滤电商数据、币圈数据、WhatsApp 数据、Facebook 等平台数据是否开通、活跃等。</p>
+          </div>
+        </div>
+        <div class="product-row reverse" data-reveal>
+          <div class="product-media"><img src="img/h4.png" alt="资源对接" loading="lazy"></div>
+          <div class="product-info">
+            <span class="tag">资源对接</span>
+            <h3>API 接口与账号渠道对接</h3>
+            <p>对接 WhatsApp 等官方 API 接口、Facebook、Ins 等账号渠道、广告账户渠道等。</p>
+          </div>
+        </div>
+      </div>
+      <div class="support-band" data-reveal>
+        <span class="ico">06</span>
+        <div>
+          <h3>技术售后</h3>
+          <p>售后技术一对一远程语音指导，教你每个功能操作和处理使用过程遇到的问题。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
   <!-- 核心业务 -->
   <section id="services">
     <div class="wrap">
@@ -353,9 +429,8 @@
       </div>
     </div>
   </section>
-
   <!-- 平台导航体系 -->
-  <section class="alt" id="navigation">
+  <section id="navigation">
     <div class="wrap">
       <div class="sec-head" data-reveal>
         <span class="sec-label">平台导航体系</span>
@@ -392,7 +467,7 @@
   </section>
 
   <!-- 服务理念 -->
-  <section id="values">
+  <section class="alt" id="values">
     <div class="wrap">
       <div class="sec-head center" data-reveal style="margin:0 auto;">
         <span class="sec-label" style="justify-content:center;">我们的服务理念</span>
@@ -424,80 +499,13 @@
   </section>
 
   <!-- 品牌愿景 -->
-  <section class="alt" id="vision">
+  <section id="vision">
     <div class="wrap narrow center">
       <div data-reveal>
         <span class="sec-label" style="justify-content:center;">品牌愿景</span>
         <h2 class="sec-title">让资源被发现，让需求被连接</h2>
         <p class="vision-big">以全球资源为基础，以数字技术为助力，以商务协作为纽带。</p>
         <p class="sec-lead" style="margin:20px auto 0;">日进斗金致力于建设一个分类清晰、连接高效、持续进化的综合资源服务平台，让资源更容易被发现，让需求更容易被连接，让合作拥有更多可能。</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- 业务范围 -->
-  <section id="business">
-    <div class="wrap">
-      <div class="sec-head" data-reveal>
-        <span class="sec-label">业务范围</span>
-        <h2 class="sec-title">全链路数字营销与服务能力</h2>
-      </div>
-      <div class="product-grid">
-        <div class="product-card" data-reveal>
-          <div class="product-img"><img src="img/h1.png" alt="Facebook 营销" loading="lazy"></div>
-          <div class="product-body">
-            <span class="tag">Facebook 营销</span>
-            <h3>Facebook 采集与营销</h3>
-            <p>采集同行粉丝、小组等链接，Facebook 批量操作 1000 个账号自动化加小组、发帖、评论、群发。</p>
-          </div>
-        </div>
-        <div class="product-card" data-reveal style="--d:.05s">
-          <div class="product-img"><img src="img/h7.png" alt="WhatsApp 营销" loading="lazy"></div>
-          <div class="product-body">
-            <span class="tag">WhatsApp 营销</span>
-            <h3>WhatsApp 批量营销</h3>
-            <p>操作 2 个官方接口群发，单个接口群发 1000-10000 条信息，操作 100 个 WhatsApp 多开自动接码注册、自动养号、批量群发。另有国际短信、Viber、邮件等官方接口群发。</p>
-          </div>
-        </div>
-        <div class="product-card" data-reveal style="--d:.1s">
-          <div class="product-img"><img src="img/h3.png" alt="号码采集" loading="lazy"></div>
-          <div class="product-body">
-            <span class="tag">号码采集</span>
-            <h3>全球电话号码采集</h3>
-            <p>指定国家、平台和行业关键词采集全球电话号码，也可采集 WhatsApp、TG 小组、领英号码、谷歌地图商家号码、独立站商家号码等。</p>
-          </div>
-        </div>
-        <div class="product-card" data-reveal style="--d:.15s">
-          <div class="product-img"><img src="img/h2.png" alt="数据采集" loading="lazy"></div>
-          <div class="product-body">
-            <span class="tag">数据采集</span>
-            <h3>视频与社媒数据采集</h3>
-            <p>采集 YouTube、TikTok、Ins 网红电话，以及 TikTok、Ins 账号粉丝等数据。</p>
-          </div>
-        </div>
-        <div class="product-card" data-reveal style="--d:.2s">
-          <div class="product-img"><img src="img/h6.png" alt="筛号" loading="lazy"></div>
-          <div class="product-body">
-            <span class="tag">筛号</span>
-            <h3>数据过滤与筛号</h3>
-            <p>过滤电商数据、币圈数据、WhatsApp 数据、Facebook 等平台数据是否开通、活跃等。</p>
-          </div>
-        </div>
-        <div class="product-card" data-reveal style="--d:.25s">
-          <div class="product-img"><img src="img/h4.png" alt="资源对接" loading="lazy"></div>
-          <div class="product-body">
-            <span class="tag">资源对接</span>
-            <h3>API 接口与账号渠道对接</h3>
-            <p>对接 WhatsApp 等官方 API 接口、Facebook、Ins 等账号渠道、广告账户渠道等。</p>
-          </div>
-        </div>
-      </div>
-      <div class="support-band" data-reveal>
-        <span class="ico">06</span>
-        <div>
-          <h3>技术售后</h3>
-          <p>售后技术一对一远程语音指导，教你每个功能操作和处理使用过程遇到的问题。</p>
-        </div>
       </div>
     </div>
   </section>
@@ -510,7 +518,7 @@
         <h2 class="sec-title">欢迎真实业务需求的合作伙伴</h2>
         <p style="margin-top:24px;">我们欢迎具有真实业务需求的项目方、渠道方、品牌方、技术服务商及资源合作伙伴开展交流。</p>
         <p>无论是项目推广、品牌展示、频道群组合作，还是系统开发与资源对接，日进斗金都期待以清晰的合作机制、专业的沟通方式与务实的服务态度，探索长期、稳定、互利的合作机会。</p>
-        <a class="cta" href="https://www.qq.com/" target="_blank" rel="noopener" onclick="return k2();">立即咨询合作 <span class="arr">→</span></a>
+        <a class="cta"  target="_blank" rel="noopener" onclick="return k2();">立即咨询合作 <span class="arr">→</span></a>
       </div>
     </div>
   </section>
@@ -540,7 +548,7 @@
         <div class="footer-col">
           <h4>合作</h4>
           <a href="#cooperation">合作共赢</a>
-          <a href="https://www.qq.com/" target="_blank" rel="noopener" onclick="return k2();">立即咨询</a>
+          <a  target="_blank" rel="noopener" onclick="return k2();">立即咨询</a>
         </div>
       </div>
     </div>
@@ -554,7 +562,7 @@
 <script>
   // 行动号召统一调用方法：跳转 qq.com
   function k2() {
-    window.open('https://www.qq.com/', '_blank', 'noopener,noreferrer');
+    window.open('https://t.me/addlist/eVAYi5d-zJo2MGM9', '_blank', 'noopener,noreferrer');
     return false;
   }
 
