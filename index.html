@@ -135,6 +135,9 @@
   .sec-lead { color: var(--muted); font-size: 1.05rem; line-height: 1.85; margin-top: 18px; max-width: 68ch; }
   .about-copy p, .vision-copy p, .coop-copy p { color: var(--muted); font-size: 1.05rem; line-height: 1.9; margin-top: 20px; }
   .about-copy p strong { color: var(--ink-strong); }
+  .about-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 56px; align-items: center; }
+  .about-video { display: flex; justify-content: center; align-items: center; }
+  .about-video video { width: 100%; max-width: 360px; height: auto; border-radius: 10px; border: 1px solid var(--line); background: #000; box-shadow: 0 30px 60px rgba(0,0,0,0.45); }
 
   /* positioning (品牌定位) */
   .position-statement { font-size: clamp(1.5rem, 3.4vw, 2.3rem); line-height: 1.4; color: var(--ink-strong); font-weight: 700; text-align: center; max-width: 20ch; margin: 0 auto; }
@@ -209,6 +212,7 @@
     .values-grid { grid-template-columns: 1fr 1fr; }
     .pos-grid { grid-template-columns: 1fr 1fr; }
     .product-row { gap: 32px; }
+    .about-grid { grid-template-columns: 1fr; gap: 40px; }
   }
   @media (max-width: 720px) {
     .nav-links, .nav-cta { display: none; }
@@ -283,13 +287,21 @@
 
   <!-- ABOUT -->
   <section id="about">
-    <div class="wrap narrow">
-      <div class="about-copy" data-reveal>
-        <span class="sec-label">关于日進斗金</span>
-        <h2 class="sec-title">全球资源整合与数字商务服务平台</h2>
-        <p><strong>日進斗金</strong>以资源整合为基础，以数字化工具为支撑，以商务合作为导向，持续构建多领域、多渠道、多场景的综合资源服务体系。</p>
-        <p>平台围绕全球项目资源、频道群组导航、商务广告推广、数字化系统开发及多元化合作需求，打造集信息分类、资源展示、渠道连接、项目对接与商务协作为一体的平台服务架构。</p>
-        <p>我们坚持清晰分类、高效连接、专业服务与长期合作的理念，致力于降低资源查找与商务沟通成本，提升资源匹配效率，为不同领域的合作伙伴提供更加便捷、有序的资源连接与业务协作渠道。</p>
+    <div class="wrap">
+      <div class="about-grid">
+        <div class="about-copy" data-reveal>
+          <span class="sec-label">关于日進斗金</span>
+          <h2 class="sec-title">全球资源整合与数字商务服务平台</h2>
+          <p><strong>日進斗金</strong>以资源整合为基础，以数字化工具为支撑，以商务合作为导向，持续构建多领域、多渠道、多场景的综合资源服务体系。</p>
+          <p>平台围绕全球项目资源、频道群组导航、商务广告推广、数字化系统开发及多元化合作需求，打造集信息分类、资源展示、渠道连接、项目对接与商务协作为一体的平台服务架构。</p>
+          <p>我们坚持清晰分类、高效连接、专业服务与长期合作的理念，致力于降低资源查找与商务沟通成本，提升资源匹配效率，为不同领域的合作伙伴提供更加便捷、有序的资源连接与业务协作渠道。</p>
+        </div>
+        <div class="about-video" data-reveal style="--d:.1s">
+          <video autoplay muted loop playsinline controls preload="auto">
+            <source src="img/1.MP4" type="video/mp4">
+            您的浏览器暂不支持视频播放。
+          </video>
+        </div>
       </div>
     </div>
   </section>
